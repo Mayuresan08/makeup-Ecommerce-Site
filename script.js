@@ -1,6 +1,7 @@
  //before Header Image
     let imageHeaderDiv=document.createElement("div")
     let imageHeader=document.createElement("img")
+    imageHeader.className="headerImg"
     imageHeader.src="https://source.unsplash.com/O-Ct1yeWeRo/1600x100";
     imageHeaderDiv.append(imageHeader)
     document.body.append(imageHeaderDiv)
@@ -16,6 +17,7 @@
     //After Header Image
     let imageHeaderDiv1=document.createElement("div")
     let imageHeader1=document.createElement("img")
+    imageHeader1.className="headerImg"
     imageHeader1.src="https://source.unsplash.com/VJ4pn_PSBLo/1600x100";
     imageHeaderDiv1.append(imageHeader1)
     document.body.append(imageHeaderDiv1)
