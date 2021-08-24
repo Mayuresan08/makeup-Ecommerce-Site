@@ -132,7 +132,7 @@ let originalData
        loadingImage.style.width="100%"
         productCards.append(loadingImage)
       try{
-        let rawData= await fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
+        let rawData= await fetch("https://makeup-api.herokuapp.com/api/v1/products.json")
         originalData= await rawData.json();
        postProduct(originalData)
       }
