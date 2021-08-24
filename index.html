@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MayuCosmetics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+    body{
+        background-color: rgba(226,226,226,255);
+        /* background-color: whitesmoke; */
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    .headerImg{
+       width: 100%;
+       height: 5rem;
+    }
+    .pageHeader , .pageFooter{
+        background-color: black;
+        color: white;
+        height: 4rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .headerPara{
+        margin-top: 1rem;
+    }
+    .pageFooter{
+        height:3rem;
+    }
+    .slideShow {
+        width: 80%;
+        margin: auto;
+        margin-top: 2rem;
+        position: relative;
+    }
+   .slideshowImage{  
+       width: 100%;
+       height: 20rem;
+       object-fit: fill;
+       transition: all 0.3s;
+       animation:slide 2s;
+       animation-iteration-count:infinite ;
+       scroll-snap-type: x mandatory;
+    }
+    @keyframes slide {
+        50%{opacity: 0.7;}
+    }
+    .slideshowImage:hover{
+        transform: scale(1.2);
+        animation-play-state: paused;
+        opacity: 1;
+    }
+    .previous{
+        position: absolute;
+        top:50%;
+        font-size: 1.5rem;
+    }
+    .next{
+        position: absolute;
+        top: 50%;
+        left:98%;
+        font-size: 1.5rem;
+        animation:slide 2s;
+    }
+    .previous:hover ,.next:hover{
+        cursor: pointer;
+        color: white;
+        animation-play-state: paused;
+    }
+    .productSection{
+        width: 80%;
+        margin: auto;
+    }
+    .ProductHeader{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color: rgb(87, 84, 84);
+        margin-top:1.6rem ;
+        font-size: 1.3rem;
+        
+
+        border-bottom: 1px solid grey ;
+    }
+    .ProductHeader  p:hover{
+        color: rgb(197, 17, 158);
+        cursor: pointer;
+    }
+    .productList{
+        width:20%;
+        height:max-content;
+        background-color: whitesmoke;
+       padding: 0.5rem;
+       position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        
+        
+    }
+    .listHeader{
+        font-weight: 700;
+        overflow: hidden;
+        
+    }
+    .mainBox{
+        display: flex;
+        margin-top: 2rem;
+        gap:1rem;
+    }
+    .icons{
+        width:2rem;
+        margin-right: 1rem;
+        float: right;
+    }
+    .listBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        
+    }
+    .listItems{
+        border-bottom: 1px solid black;
+        overflow: hidden;
+        margin-bottom: 0.8rem;
+    }
+    .listItems:hover{
+        cursor: pointer;
+        color: rgb(221, 9, 168);
+        background-color: white;
+    }
+    .productCards{
+        width:100%
+    }
+    .card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       background-color: white;
+       padding: 1rem;
+       border-radius: 10px;
+       gap:2rem;
+    }
+    .cardImage{
+        height: 15rem;
+        transition: all 0.4s;
+    }
+    .cardImage:hover{
+        transform: scale(1.2);
+        border-radius: 10px;
+
+    }
+    .cardBody{
+        display: flex;
+        flex-direction: column;
+    }
+    .productDescription{
+        color: grey;
+    }
+    .shadesContainer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top:-10px;
+        gap:2px;
+    }
+    .shades{
+        
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        
+    }
+    .loading{
+        text-align: center;
+        position: relative;
+        top: 25px;
+
+    }
+    .Buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem;
+    
+    }
+    @media (max-width:800px){
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cardImage{
+            width: 100%;
+        height: 15rem;
+        transition: all 0.4s;
+    }
+    }
+
+</style>
+<body>
+    
+
+
+<script src="script.js></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+  crossorigin="anonymous"></script>
+</body>
+</html>
