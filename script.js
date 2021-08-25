@@ -3,6 +3,7 @@
     let imageHeader=document.createElement("img")
     imageHeader.className="headerImg"
     imageHeader.src="https://source.unsplash.com/O-Ct1yeWeRo/1600x100";
+    
     imageHeaderDiv.append(imageHeader)
     document.body.append(imageHeaderDiv)
 
@@ -38,6 +39,20 @@
     mainBox.className="mainBox"
     let productList=document.createElement("div")
     productList.className="productList"
+
+    //searchBar and Brand Navigation bar
+    let brandBox = document.createElement("div");
+    brandBox.className="brandBox";
+    brandBox.innerHTML =`
+    <div ><h5>Featured Brands</p></div>
+            <div ><p onclick="changeBrand('nyx')">NYX</p></div>
+            <div ><p onclick="changeBrand('clinique')">Clinique</p></div>
+            <div ><p onclick="changeBrand('maybelline')">Maybelline</p></div>
+            <div ><p onclick="changeBrand('covergirl')">Covergirl</p></div>
+            <div ><p onclick="changeBrand('revlon')">Revlon</p></div>
+            <div id="searchProduct"><input type="text" class="form-control " placeholder="search"  onkeydown="searchProduct(event)" id="search"></div>
+    `
+    productSection.append(brandBox)
 
     //left-list
     let listHeader=document.createElement("h3")
@@ -112,7 +127,9 @@
     imageTurn=setInterval(turnImage,2000);
    }
 
-  //Fetching and displaying Data
+
+   //let productCards=document.getElementsByClassName("productCards")[0];
+   let searchName=document.getElementById("search")
    let product="lipstick";
    let filteredData=[];
 
@@ -123,10 +140,29 @@
        filteredData=[];
        postProduct(originalData);
    }
+   function changeBrand(name)
+   {
+       brand=name;
+       pageNo=0;
+       filteredData=[];
+       brandFilter(brand);
+   }
 
+   function searchProduct(e)
+   {
+       console.log(e.key,e.keyCode)
+       filteredData=[];
+       pageNo=0;
+       if(e.keyCode === 13)
+       {console.log(searchName.value)
+        let temp=searchName.value;
+        searchName.value="";
+        searchFilter(temp)
+        }
+   }
 
 let originalData
-  getProduct();
+ getProduct();
    async function getProduct()
    { productCards.innerHTML =`<h2 class="loading">Loading...</h2>`
     let loadingImage=document.createElement("img")
@@ -144,7 +180,32 @@ let originalData
           productCards.innerHTML =`<h2>The Product is not found. Please click refresh and try again</h2>`
       }
    }
-   
+   function searchFilter(newData)
+   {
+       const regex = new RegExp(newData ,'gi')
+       originalData.forEach(i => {
+           if(regex.test(i.name))
+           {
+               filteredData.push(i)
+           }
+       });
+       if(filteredData.length == 0)
+       {
+        productCards.innerHTML =`<h2>No products found</h2>`
+       }
+       else
+       listData(filteredData)
+   }
+   function brandFilter(newData)
+   {
+    originalData.forEach(i => {
+            if(i.brand == newData)
+            {
+                filteredData.push(i)
+            }
+        });
+        listData(filteredData)
+   }
    function postProduct(newData)
    {    productCards.innerHTML='';
         newData.forEach(i => {
@@ -185,10 +246,12 @@ let originalData
                         <div class="productPrice"><b>$${productPrice}</b></div>
                         <div class="productDescription"><p>${productDescription}</p></div>
                         <div class="productShades">
-                        <div ><p>Shades Available:</p></div>
-                        <div class="shadesContainer${i} shadesContainer"></div>    
-                    </div>
-                    <div class="productLink"><a href="#">${productLink}</a></div>
+                            <div ><p>Shades Available:</p></div>
+                            <div class="shadesContainer${i} shadesContainer">
+                                
+                            </div>
+                        </div>
+                        <div class="productLink"><a href="#">${productLink}</a></div>
                     </div>
                </div>
             `
@@ -211,8 +274,6 @@ let originalData
                     <div ><button class="btn btn-dark" onclick="nextPage()">Next</button></div>
                 </div>`
     }
-
-    //Pagination Logic
    function previousPage()
    {
       
