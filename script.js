@@ -150,11 +150,11 @@
 
    function searchProduct(e)
    {
-       console.log(e.key,e.keyCode)
+
        filteredData=[];
        pageNo=0;
        if(e.keyCode === 13)
-       {console.log(searchName.value)
+       {
         let temp=searchName.value;
         searchName.value="";
         searchFilter(temp)
