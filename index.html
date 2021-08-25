@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
     body{
         background-color: rgba(226,226,226,255);
         /* background-color: whitesmoke; */
@@ -28,11 +28,8 @@
         justify-content: space-around;
         align-items: center;
     }
-    .headerPara{
-        margin-top: 1rem;
-    }
     .pageFooter{
-        height:3rem;
+        height:2rem;
     }
     .slideShow {
         width: 80%;
@@ -100,7 +97,7 @@
        padding: 0.5rem;
        position: -webkit-sticky;
         position: sticky;
-        top: 0;
+        top: 5rem;
         
         
     }
@@ -147,7 +144,7 @@
        padding: 1rem;
        border-radius: 10px;
        gap:2rem;
-        margin-bottom: 1rem;
+       z-index: -1;
     }
     .cardImage{
         height: 15rem;
@@ -191,7 +188,47 @@
         margin: 1rem;
     
     }
+    .brandBox{
+        display: flex;
+        flex-direction: row;
+        gap:2.5rem;
+        background-color: black;
+        color:rgba(226,226,226,255); 
+        text-align: center;
+        /* align-items: center; */
+        margin-top: 1rem;
+        position: sticky;
+        top: 0;
+    }
+    .brandBox > div >p:hover{
+        color: rgb(184, 24, 170);
+        cursor: pointer;
+    }
+    #searchProduct{
+        max-width: 25rem;
+        margin: 2px 8px 10px auto;
+        /* margin-left: auto;
+        margin-right: 4px; */
+        height: 2rem;
+        overflow: hidden;
+    }
     @media (max-width:800px){
+        .brandBox{
+            display: flex;
+            flex-direction: column;
+            margin:auto;
+            width:70%;
+        }
+        .brandBox > div {
+            border-bottom: 1px solid white;
+            
+        }
+        #searchProduct{
+           margin: auto;
+           margin-bottom: 20px;
+           width: 10rem;
+           overflow: hidden;
+        }
         .card{
             display: flex;
             flex-direction: column;
@@ -203,6 +240,7 @@
         transition: all 0.4s;
     }
     }
+
 
 </style>
 <body>
