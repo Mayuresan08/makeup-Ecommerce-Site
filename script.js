@@ -221,7 +221,7 @@ let originalData
         {
             productCards.innerHTML ='';
         for(let i=pageNo;i<(pageNo+10);i++)
-        {  console.log(i,data.length)
+        {  
 
             if(i < data.length)
             {
